@@ -2,6 +2,9 @@ const latestPostContainer = document.getElementById("latest-post-container");
 const latestPostLoader = document.getElementById("latest-post-loader");
 const allPostContainer = document.getElementById("all-post-container");
 const allPostLoader = document.getElementById("all-post-loader");
+const markAsRead = document.getElementById("mark-as-read");
+const marAsReadValue = parseInt(markAsRead.innerText);
+const markAsReadContainer = document.getElementById("mark-as-read-container");
 
 // latest Posts API handler
 const fetchDataLatestPost = async () => {
@@ -105,6 +108,7 @@ const fetchDataAllPost = async () => {
   }
 };
 
+// appendChild function for all post container
 const appendAllPosts = (data) => {
   data.forEach((item) => {
     const article = createArticleElemetAll(item);
@@ -112,13 +116,18 @@ const appendAllPosts = (data) => {
   });
 };
 
+// Create article tag handler for all post constainer
 const createArticleElemetAll = (item) => {
   // check user isAcitve or not
   isUserActive = item?.isActive || false;
 
-  //create an object for read complete list
+  //check data and prepare to sting value for read complete list
   const title = item?.title || "No title";
   const postViewCount = item?.view_count || "No view";
+
+  // check if any string contain single quote
+  let string = item.title;
+  let updateString = string.replace(/'/g, ",,,");
 
   //define article tag
   const article = document.createElement("article");
@@ -158,7 +167,7 @@ const createArticleElemetAll = (item) => {
           <i class="fa-regular fa-clock sm:mr-2"></i>
           <span class="mr-2 sm:mr-4">${item?.posted_time} min</span>
         </div>
-        <div onclick="addToReadedList('${title}', '${postViewCount}')"
+        <div onclick="addToReadedList('${updateString}', '${item?.view_count}')"
           class="text-sm sm:text-base md:text-lg text-white px-2 py-0.5 bg-green-600 rounded-full">
           <i class="fa-solid fa-envelope-open"></i>
         </div>
@@ -169,7 +178,34 @@ const createArticleElemetAll = (item) => {
 };
 
 const addToReadedList = (title, postViewCount) => {
-  console.table([title, postViewCount]);
+  // Covert to the single quote for the get correct value
+  let string = title;
+  let updateString = string.replace(/,,,/g, "'");
+  appendMarkItem(updateString, postViewCount);
+};
+
+//appendChild function for mark as read container
+const appendMarkItem = (string, postViewCount) => {
+  const div = createDivElementReaded(string, postViewCount);
+  markAsReadContainer.appendChild(div);
+};
+
+const createDivElementReaded = (string, postViewCount) => {
+  //define div tag
+  const div = document.createElement("div");
+  // add classname inside div tag
+  div.className = `flex justify-between items-center gap-2 bg-white p-4 rounded-xl`;
+  //use template litarel for div content
+  div.innerHTML = `
+  <h4 class="text-base font-semibold grow">
+    ${string}
+  </h4>
+  <p class="font-inter opacity-70 text-sm w-[60px] shrink-0">
+    <i class="fa-regular fa-eye mr-1.5"></i>
+    ${postViewCount}
+  </p>
+  `;
+  return div;
 };
 
 fetchDataAllPost();
