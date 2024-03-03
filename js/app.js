@@ -3,7 +3,7 @@ const latestPostLoader = document.getElementById("latest-post-loader");
 const allPostContainer = document.getElementById("all-post-container");
 const allPostLoader = document.getElementById("all-post-loader");
 const markAsRead = document.getElementById("mark-as-read");
-const marAsReadValue = parseInt(markAsRead.innerText);
+let marAsReadValue = parseInt(markAsRead.innerText);
 const markAsReadContainer = document.getElementById("mark-as-read-container");
 
 // latest Posts API handler
@@ -181,7 +181,12 @@ const addToReadedList = (title, postViewCount) => {
   // Covert to the single quote for the get correct value
   let string = title;
   let updateString = string.replace(/,,,/g, "'");
+
+  // call mark as read container function handler
   appendMarkItem(updateString, postViewCount);
+
+  // call mark as read counter handler
+  markAsReadCounter();
 };
 
 //appendChild function for mark as read container
@@ -190,6 +195,7 @@ const appendMarkItem = (string, postViewCount) => {
   markAsReadContainer.appendChild(div);
 };
 
+// create div tag handler for mark as read container
 const createDivElementReaded = (string, postViewCount) => {
   //define div tag
   const div = document.createElement("div");
@@ -206,6 +212,12 @@ const createDivElementReaded = (string, postViewCount) => {
   </p>
   `;
   return div;
+};
+
+// mark as read counter handler
+const markAsReadCounter = () => {
+  marAsReadValue++;
+  markAsRead.innerText = marAsReadValue;
 };
 
 fetchDataAllPost();
