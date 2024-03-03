@@ -5,6 +5,7 @@ const allPostLoader = document.getElementById("all-post-loader");
 const markAsRead = document.getElementById("mark-as-read");
 let marAsReadValue = parseInt(markAsRead.innerText);
 const markAsReadContainer = document.getElementById("mark-as-read-container");
+const searchBtnInput = document.getElementById("search-btn-input");
 
 // latest Posts API handler
 const fetchDataLatestPost = async () => {
@@ -222,8 +223,48 @@ const markAsReadCounter = () => {
 
 // banner section serach button function handler by postByQuery api
 
-const fetchDataByQuery = () => {
-  console.log("Hello");
+const fetchDataByQuery = async () => {
+  try {
+    //get input value
+    const inputValue = searchBtnInput.value;
+    const lowerCaseValue = inputValue.toLowerCase();
+
+    if (
+      lowerCaseValue === "coding" ||
+      lowerCaseValue === "comedy" ||
+      lowerCaseValue === "music"
+    ) {
+      //clear container
+      allPostContainer.innerHTML = "";
+
+      //Show loader for at least 2 second
+      allPostLoader.classList.remove("hidden");
+
+      // fetch data from api
+      const url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${lowerCaseValue}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const postsData = data.posts;
+
+      //clear input field
+      searchBtnInput.value = "";
+
+      // call the appendAllPosts handler
+      appendAllPosts(postsData);
+    } else {
+      alert("Input value should be this type : coding, comedy and music");
+      throw new Error(
+        "Input value should be this type : coding, comedy and music"
+      );
+    }
+  } catch (error) {
+    console.log("Error from fetching post by query api:", error);
+  } finally {
+    // Hide loader after at least 2 seconds
+    setTimeout(() => {
+      allPostLoader.classList.add("hidden");
+    }, 2000);
+  }
 };
 
 fetchDataAllPost();
