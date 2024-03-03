@@ -131,7 +131,8 @@
           <div
             class="hero min-h-[70vh] bg-[url(./images/bgbanner.png)] bg-cover bg-no-repeat bg-center">
             <div class="hero-content flex-col lg:flex-row md:px-16 lg:px-24">
-              <div class="text-white space-y-4 md:space-y-6">
+              <div
+                class="text-white space-y-2 md:space-y-4 text-center lg:text-left">
                 <h1
                   class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold md:font-extrabold">
                   Welcome to the <br />
@@ -147,12 +148,13 @@
                   Shape Tomorrow's Discussions!
                 </p>
                 <label
-                  class="input pr-1 input-bordered flex items-center gap-2 text-black max-w-sm rounded-full">
+                  class="input pr-1 input-bordered flex items-center gap-2 text-black max-w-sm rounded-full mx-auto lg:mx-0">
                   <input
                     type="text"
                     class="grow w-[130px]"
                     placeholder="Search here anything" />
                   <button
+                    onclick="fetchDataByQuery()"
                     class="btn bg-[#797DFC] text-white min-h-10 h-10 px-4 sm:px-8 rounded-full md:text-lg">
                     Search
                   </button>

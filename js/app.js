@@ -220,6 +220,12 @@ const markAsReadCounter = () => {
   markAsRead.innerText = marAsReadValue;
 };
 
+// banner section serach button function handler by postByQuery api
+
+const fetchDataByQuery = () => {
+  console.log("Hello");
+};
+
 fetchDataAllPost();
 
 fetchDataLatestPost();
