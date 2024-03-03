@@ -207,7 +207,7 @@ const createDivElementReaded = (string, postViewCount) => {
   <h4 class="text-base font-semibold grow">
     ${string}
   </h4>
-  <p class="font-inter opacity-70 text-sm w-[60px] shrink-0">
+  <p class="font-inter opacity-70 text-sm w-[65px] shrink-0">
     <i class="fa-regular fa-eye mr-1.5"></i>
     ${postViewCount}
   </p>
