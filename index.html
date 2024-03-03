@@ -15,15 +15,15 @@
     <!-- CSS File link -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
+  <body class="p-4">
     <!-- Header section -->
     <header class="container mx-auto font-mulish">
       <!-- navbar section start -->
-      <nav class="px-4">
-        <div class="navbar bg-base-100">
+      <nav class="">
+        <div class="navbar bg-base-100 px-0">
           <div class="flex-1">
             <a
-              class="btn btn-ghost text-2xl sm:text-3xl md:text-4xl font-bold sm:font-extrabold md:font-black"
+              class="btn btn-ghost text-2xl sm:text-3xl md:text-4xl font-bold sm:font-extrabold md:font-black pl-0"
               >ReTro</a
             >
           </div>
@@ -33,14 +33,14 @@
                 class="hidden sm:block py-2 tooltip tooltip-bottom"
                 data-tip="Home">
                 <a
-                  class="block w-full h-full rounded-full bg-slate-200 py-4 hover:bg-slate-400 hover:text-white"
+                  class="block w-full h-full rounded-full bg-slate-200 py-4 border border-slate-500 hover:bg-slate-400 hover:text-white"
                   ><svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 md:w-7 md:h-7">
+                    class="w-5 h-5 md:w-6 md:h-6">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -52,14 +52,14 @@
                 class="hidden sm:block py-2 tooltip tooltip-bottom"
                 data-tip="Edit">
                 <a
-                  class="block w-full h-full rounded-full bg-slate-200 py-4 hover:bg-slate-400 hover:text-white"
+                  class="block w-full h-full rounded-full bg-slate-200 py-4 border border-slate-500 hover:bg-slate-400 hover:text-white"
                   ><svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 md:w-7 md:h-7">
+                    class="w-5 h-5 md:w-6 md:h-6">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -71,14 +71,14 @@
                 class="hidden sm:block py-2 tooltip tooltip-bottom"
                 data-tip="Add">
                 <a
-                  class="block w-full h-full rounded-full bg-slate-200 py-4 hover:bg-slate-400 hover:text-white">
+                  class="block w-full h-full rounded-full bg-slate-200 py-4 border border-slate-500 hover:bg-slate-400 hover:text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 md:w-7 md:h-7">
+                    class="w-5 h-5 md:w-6 md:h-6">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -90,14 +90,14 @@
                 class="hidden sm:block py-2 tooltip tooltip-bottom"
                 data-tip="Bookmarks">
                 <a
-                  class="block w-full h-full rounded-full bg-slate-200 py-4 hover:bg-slate-400 hover:text-white">
+                  class="block w-full h-full rounded-full bg-slate-200 py-4 border border-slate-500 hover:bg-slate-400 hover:text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 md:w-7 md:h-7">
+                    class="w-5 h-5 md:w-6 md:h-6">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -118,6 +118,66 @@
       <!-- navbar section end -->
 
       <!-- banner section start -->
+      <section>
+        <div class="bg-[#12132D] rounded-3xl">
+          <div
+            class="hero min-h-[70vh] bg-[url(./images/bgbanner.png)] bg-cover bg-no-repeat bg-center">
+            <div class="hero-content flex-col lg:flex-row md:px-16 lg:px-24">
+              <div class="text-white space-y-4 md:space-y-6">
+                <h1
+                  class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold md:font-extrabold">
+                  Welcome to the <br />
+                  <span
+                    class="bg-gradient-to-r from-[#797DFC] to-[#797DFC66] bg-clip-text text-transparent font-extrabold md:font-black"
+                    >ReTro</span
+                  >
+                  Forum
+                </h1>
+                <p class="py-6 opacity-90">
+                  Unlock Your Memories at the Retro Forum: Where Every Post is a
+                  Journey. Join Our Retro Community: Where Yesterday's Stories
+                  Shape Tomorrow's Discussions!
+                </p>
+                <label
+                  class="input pr-1 input-bordered flex items-center gap-2 text-black max-w-sm rounded-full">
+                  <input
+                    type="text"
+                    class="grow w-[130px]"
+                    placeholder="Search here anything" />
+                  <button
+                    class="btn bg-[#797DFC] text-white min-h-10 h-10 px-4 sm:px-8 rounded-full md:text-lg">
+                    Search
+                  </button>
+                </label>
+              </div>
+              <div
+                class="max-w-sm bg-white p-5 md:p-8 mt-4 rounded-lg shadow-2xl" />
+              <table
+                class="table-auto w-[180px] sm:w-[250px] text-[#12132D] opacity-80">
+                <tbody
+                  class="*:text-lg *:md:text-xl *:lg:text-2xl *:h-8 *:md:h-10 *:font-medium">
+                  <tr>
+                    <td>Registered Users</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>Forum</td>
+                    <td>05</td>
+                  </tr>
+                  <tr>
+                    <td>Topics</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>Replies</td>
+                    <td>8</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- banner section end -->
     </header>
     <!-- main section -->
