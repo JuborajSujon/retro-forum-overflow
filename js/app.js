@@ -142,7 +142,9 @@ const createArticleElemetAll = (item) => {
       } p-1.5 h-3"></span>
       <div
         class="grid w-20 h-20 bg-white place-items-center rounded-xl">
-        <img src="${item?.image}" alt="${item?.author?.name}" />
+        <img class="rounded-xl" src="${item?.image}" alt="${
+    item?.author?.name
+  }" />
       </div>
     </div>
     <div class="text-[#12132D] font-inter grow">
